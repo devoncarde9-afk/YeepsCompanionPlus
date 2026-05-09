@@ -5,7 +5,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = YeepsCompanion
 YeepsCompanion_FILES = Tweak.x Overlay.mm
-YeepsCompanion_FRAMEWORKS = UIKit CoreMotion
+YeepsCompanion_FRAMEWORKS = UIKit SceneKit
 YeepsCompanion_LIBRARIES = substrate
 
 include $(THEOS_MAKE_PATH)/tweak.mk
