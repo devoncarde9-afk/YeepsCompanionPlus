@@ -2,7 +2,7 @@ Package: com.angel.yeepscompanion
 Name: YeepsCompanion+
 Version: 1.0.0
 Architecture: iphoneos-arm64
-Description: Mods for Yeeps Companion - Fly, Speed, ESP and more
+Description: Mods for Yeeps Companion - Fly, Speed, Soundboard and more
 Maintainer: Angel
 Author: Angel
 Section: Tweaks
