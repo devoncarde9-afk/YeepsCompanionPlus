@@ -1,0 +1,21 @@
+name: Build
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install Theos
+      run: |
+        brew install ldid xz
+        git clone --recursive https://github.com/theos/theos.git ~/theos
+        curl -L "https://github.com/theos/sdks/releases/latest/download/iPhoneOS16.5.sdk.tar.xz" -o sdk.tar.xz
+        tar -xJf sdk.tar.xz -C ~/theos/sdks/
+        echo "THEOS=$HOME/theos" >> $GITHUB_ENV
+        echo "$HOME/theos/bin" >> $GITHUB_PATH
+    - name: Build DEB
+      run: make package FINALPACKAGE=1
+    - uses: actions/upload-artifact@v4
+      with:
+        name: YeepsCompanion
+        path: packages/*.deb
